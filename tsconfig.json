@@ -2,10 +2,10 @@
 	"compilerOptions": {
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
+		"target": "ES6",
 		"skipLibCheck": true,
-		"strict": false,
+		"strict": true,
 		"noEmit": true,
-		"noUnusedLocals": true,
 		"esModuleInterop": true,
 		"module": "esnext",
 		"moduleResolution": "bundler",
@@ -13,6 +13,13 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
+		// Add these TypeScript compiler options to catch unused code
+		"noUnusedLocals": false,
+		"noUnusedParameters": true,
+		"noImplicitAny": true,
+		"exactOptionalPropertyTypes": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
 		"plugins": [
 			{
 				"name": "next"
@@ -23,5 +30,11 @@
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules"],
+	"rules": {
+		"@typescript-eslint/no-unused-vars": "warn",
+		"@typescript-eslint/no-explicit-any": "warn",
+		"prefer-const": "warn",
+		"react-hooks/exhaustive-deps": "warn"
+	}
 }

@@ -10,9 +10,9 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ className = "" }) => {
 	const navigationItems = [
-		{ label: "Features", href: "/features" },
-		{ label: "How it works", href: "/how-it-works" },
-		{ label: "Pricing", href: "/pricing" },
+		{ label: "Use case", href: "#use-case" },
+		{ label: "How it works", href: "#how-it-works" },
+		{ label: "Pricing", href: "#pricing" },
 		{ label: "Contact", href: "/contact" },
 	];
 
@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
 							<Link
 								key={item.href}
 								href={item.href}
-								className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+								className="text-[#2D293DBF] hover:text-[#2D293D] hover:font-medium transition-colors font-medium"
 							>
 								{item.label}
 							</Link>
@@ -47,14 +47,19 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
 					{/* Auth Buttons */}
 					<div className="hidden md:flex items-center space-x-4">
 						<Link
-							href="/login"
+							href="https://app.waxwing.ai/"
 							className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
 						>
 							Log in
 						</Link>
-						<Button size="sm" className="bg-gray-900 hover:bg-gray-800">
-							Sign up
-						</Button>
+						<Link
+							href="https://app.waxwing.ai/sign-up"
+							className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+						>
+							<Button size="sm" className="bg-gray-900 hover:bg-gray-800">
+								Sign up
+							</Button>
+						</Link>
 					</div>
 
 					{/* Mobile Menu Button */}

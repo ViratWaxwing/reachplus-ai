@@ -8,3 +8,4 @@ export { default as Input } from "./Input";
 export { default as WidgetsDemo } from "./WidgetsDemo";
 export { default as BelovedExperiences } from "./BelovedExperiences";
 export { default as HowWork } from "./HowWork";
+export { default as Footer } from "./Footer";

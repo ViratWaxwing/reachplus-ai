@@ -6,7 +6,10 @@ import {
 	BelovedExperiences,
 	HowWork,
 	Hero,
+	Footer,
 } from "@/components";
+import Pricing from "@/components/Pricing";
+import Testimonial from "@/components/Testimonial";
 
 const Home = () => {
 	return (
@@ -16,8 +19,11 @@ const Home = () => {
 			<WidgetsDemo />
 			<Features />
 			<BelovedExperiences />
-			<HowWork />
+			{/* <HowWork /> */}
 			<Integrations />
+			<Pricing />
+			<Testimonial />
+			<Footer />
 		</div>
 	);
 };
