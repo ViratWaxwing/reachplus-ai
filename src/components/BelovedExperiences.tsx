@@ -1,35 +1,48 @@
 import React from "react";
+import MediaKit from "./../../public/images/media.png";
+import Configure from "./../../public/images/configure.png";
+import Hyper from "./../../public/images/hyper.png";
+import Image from "next/image";
+import { BiDollar, BiSolidStar } from "react-icons/bi";
+import { SparklesIcon } from "@heroicons/react/16/solid";
 
 interface ExperienceCardProps {
 	badge: string;
 	title: string;
 	description: string;
+	image: any;
+	icon: any;
 }
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({
 	badge,
 	title,
 	description,
+	image,
+	icon,
 }) => {
 	return (
-		<div className="flex-1 flex flex-col bg-[#F7F7F8] p-5 rounded-xl">
+		<div className="flex-1 flex flex-col bg-[#F7F7F8] p-5 rounded-xl hover:border border-[#744FFB]">
 			{/* Header with icon and badge */}
 			<div className="mb-6 flex flex-col gap-2">
-				<div className="flex items-center rounded-full w-max bg-[#FFFFFF] px-3 py-2 gap-3 mb-4">
+				<div className="flex items-center rounded-full w-max bg-[#FFFFFF] px-3 py-1 gap-2 mb-3">
 					{/* Purple circular icon with star */}
+					<span className="text-[#744FFB]">{icon}</span>
 					<span className="text-sm font-medium text-[#2D293D99] rounded-full">
 						{badge}
 					</span>
 				</div>
-				<h3 className="text-xl font-bold text-[#2D293D] mb-3 leading-tight">
+				<h3 className="text-xl font-bold text-[#2D293D] leading-tight">
 					{title}
 				</h3>
 				<p className="text-[#2D293DCC]  leading-relaxed">{description}</p>
 			</div>
 
 			{/* Preview area */}
-			<div className="flex-1 bg-[#FFFFFF] rounded-xl min-h-[150px] flex items-center justify-center">
-				<div className="text-center text-gray-400"></div>
+			<div className="flex-1 rounded-xl flex items-end justify-center">
+				<div className="text-center text-gray-400 h-max ">
+					<Image src={image} alt="Image" className="h-full" />
+				</div>
 			</div>
 
 			{/* Generate button */}
@@ -39,8 +52,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
 const BelovedExperiences: React.FC = () => {
 	return (
-		<section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#FFFFFF]">
-			<div className="max-w-6xl mx-auto">
+		<section
+			id={"use-case"}
+			className="py-20 px-4 sm:px-6 lg:px-8 bg-[#FFFFFF]"
+		>
+			<div className="max-w-screen-xl mx-auto">
 				{/* Header */}
 				<div className="text-center mb-16">
 					<h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#2D293D] mb-4">
@@ -57,21 +73,27 @@ const BelovedExperiences: React.FC = () => {
 						badge="Most Popular"
 						title="Personalized Media Kits & Proposals"
 						description="Sales teams & customers get tailored plans instantly."
+						image={MediaKit}
+						icon={<BiSolidStar size={16} />}
 					/>
 					<ExperienceCard
 						badge="High ROI"
 						title="Hyper-Personalized Newsletters"
 						description="Re-engagement and cross-sell that feels human."
+						image={Hyper}
+						icon={<BiDollar size={16} />}
 					/>
 					<ExperienceCard
 						badge="New"
 						title="Interactive Configurators"
 						description="Let customers build and visualize their perfect solution."
+						image={Configure}
+						icon={<SparklesIcon className="w-5 h-5" />}
 					/>
 				</div>
 
 				{/* Call to Action */}
-				<div className="text-center">
+				{/* <div className="text-center">
 					<button className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105">
 						Explore use cases
 						<svg
@@ -90,7 +112,7 @@ const BelovedExperiences: React.FC = () => {
 							/>
 						</svg>
 					</button>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	);

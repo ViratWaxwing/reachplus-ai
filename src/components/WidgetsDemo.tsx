@@ -1,6 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { Button } from "./";
+
+import InteractivePlans from "./../../public/images/interactive.png";
+import Newsletters from "./../../public/images/newsletter.png";
+import Image from "next/image";
+import { GlowingEffect } from "./ui/GlowingEffect";
 
 interface WidgetsDemoProps {
 	className?: string;
@@ -28,7 +32,7 @@ const WidgetsDemo: React.FC<WidgetsDemoProps> = ({ className = "" }) => {
 	};
 	return (
 		<section
-			className={`py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white ${className}`}
+			className={`py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#FCFCFD] ${className}`}
 			aria-labelledby="widgets-demo-heading"
 		>
 			<div className="max-w-7xl mx-auto">
@@ -47,7 +51,7 @@ const WidgetsDemo: React.FC<WidgetsDemoProps> = ({ className = "" }) => {
 								WebkitBackgroundClip: "text",
 								WebkitTextFillColor: "transparent",
 							}}
-							className="text-blue-600 font-extrabold"
+							className="text-blue-600 font-bold"
 						>
 							Reach+ widgets
 						</span>{" "}
@@ -55,7 +59,7 @@ const WidgetsDemo: React.FC<WidgetsDemoProps> = ({ className = "" }) => {
 						instantly tailored to you
 					</h1>
 
-					<p className="text-lg sm:text-xl text-[#2D293DBF] text-center mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
+					<p className="text-lg text-[#2D293DBF] text-center mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
 						{
 							"Enter your website (or your client's) and watch Reach+ generate two custom mini experiences just for you:"
 						}
@@ -64,10 +68,29 @@ const WidgetsDemo: React.FC<WidgetsDemoProps> = ({ className = "" }) => {
 
 				{/* Features Grid */}
 				<div className="flex w-full gap-8">
-					<div className="flex-1 flex flex-col bg-[#F7F7F8] px-[1.88rem] py-[1.5rem]">
+					<div className="flex-1 relative flex gap-[1.88rem] flex-col border rounded-xl border-[#EAEAEC] bg-white px-[1.88rem] py-[1.5rem] hover:cursor-pointer">
+						<GlowingEffect
+							blur={0}
+							borderWidth={1}
+							spread={80}
+							glow={true}
+							disabled={false}
+							proximity={64}
+							inactiveZone={0.01}
+						/>
+						{/* Preview area */}
+						<div className="rounded-xl flex items-center justify-center">
+							<div className="text-center h-auto text-gray-400">
+								<Image
+									src={InteractivePlans}
+									alt="Interactive Plans"
+									className=" object-cover"
+								/>
+							</div>
+						</div>
 						{/* Header with icon and badge */}
 						<div className="mb-6 flex flex-col gap-2">
-							<div className="flex items-center rounded-full w-max bg-[#FFFFFF] px-3 py-1 gap-3 mb-4">
+							<div className="flex items-center border border-[#EBE6FF] shadow-sm shadow-[#7957FE1F] rounded-full w-max bg-[#FFFFFF] px-3 py-1 gap-3 mb-4">
 								{/* Purple circular icon with star */}
 
 								<span className="text-sm font-medium text-[#2D293D99] px-3 py-1 rounded-full">
@@ -82,16 +105,11 @@ const WidgetsDemo: React.FC<WidgetsDemoProps> = ({ className = "" }) => {
 							</p>
 						</div>
 
-						{/* Preview area */}
-						<div className="flex-1 bg-gray-50 rounded-xl border-2 border-dashed border-gray-200 min-h-[300px] mb-6 flex items-center justify-center">
-							<div className="text-center text-gray-400"></div>
-						</div>
-
 						{/* Generate button */}
-						<div>
+						{/* <div>
 							<Button
 								size="lg"
-								className="bg-gray-800 hover:bg-gray-900 text-white flex font-bold items-center gap-2 px-4 py-2"
+								className=" bg-gradient-to-r from-[#744FFB] to-[#80E6E6] hover:from-[#744FFB] hover:to-[#80E6E6] text-white flex font-bold items-center gap-2 px-4 py-2"
 								onClick={() => handleGenerate("interactive-plans")}
 								disabled={isLoading}
 							>
@@ -122,28 +140,36 @@ const WidgetsDemo: React.FC<WidgetsDemoProps> = ({ className = "" }) => {
 								) : (
 									<>
 										Generate now
-										<svg
-											className="w-4 h-4"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke="currentColor"
-											strokeWidth={2}
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												d="M13 7l5 5m0 0l-5 5m5-5H6"
-											/>
-										</svg>
+										<ArrowRightIcon className="w-6 h-6" />
 									</>
 								)}
 							</Button>
-						</div>
+						</div> */}
 					</div>
-					<div className="flex-1 flex flex-col bg-[#F7F7F8] px-[1.88rem] py-[1.5rem]">
+					<div className="flex-1 relative flex gap-[1.88rem] flex-col border justify-between rounded-xl border-[#DBF0F0] bg-white px-[1.88rem] py-[1.5rem] hover:cursor-pointer">
+						<GlowingEffect
+							blur={0}
+							borderWidth={1}
+							spread={80}
+							glow={true}
+							disabled={false}
+							proximity={64}
+							inactiveZone={0.01}
+						/>
+
+						{/* Preview area */}
+						<div className="rounded-xl  flex items-center justify-center">
+							<div className="text-center text-gray-400 h-auto">
+								<Image
+									src={Newsletters}
+									alt="Newsletters"
+									className="object-cover"
+								/>
+							</div>
+						</div>
 						{/* Header with icon and badge */}
 						<div className="mb-6 flex flex-col gap-2">
-							<div className="flex items-center rounded-full w-max bg-[#FFFFFF] px-3 py-1 gap-3 mb-4">
+							<div className="flex items-center border border-[#DBF0F0] shadow-sm shadow-[#5DBDBB26] rounded-full w-max bg-[#FFFFFF] px-3 py-1 gap-3 mb-4">
 								{/* Purple circular icon with star */}
 
 								<span className="text-sm font-medium text-[#2D293D99] px-3 py-1 rounded-full">
@@ -159,16 +185,11 @@ const WidgetsDemo: React.FC<WidgetsDemoProps> = ({ className = "" }) => {
 							</p>
 						</div>
 
-						{/* Preview area */}
-						<div className="flex-1 bg-gray-50 rounded-xl border-2 border-dashed border-gray-200 min-h-[300px] mb-6 flex items-center justify-center">
-							<div className="text-center text-gray-400"></div>
-						</div>
-
 						{/* Generate button */}
-						<div>
+						{/* <div>
 							<Button
 								size="lg"
-								className="bg-gray-800 hover:bg-gray-900 text-white flex font-bold items-center gap-2 px-4 py-2"
+								className=" bg-gradient-to-r from-[#744FFB] to-[#80E6E6] hover:from-[#744FFB] hover:to-[#80E6E6] text-white flex font-bold items-center gap-2 px-4 py-2"
 								onClick={() => handleGenerate("interactive-plans")}
 								disabled={isLoading}
 							>
@@ -199,23 +220,11 @@ const WidgetsDemo: React.FC<WidgetsDemoProps> = ({ className = "" }) => {
 								) : (
 									<>
 										Generate now
-										<svg
-											className="w-4 h-4"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke="currentColor"
-											strokeWidth={2}
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												d="M13 7l5 5m0 0l-5 5m5-5H6"
-											/>
-										</svg>
+										<ArrowRightIcon className="w-6 h-6" />
 									</>
 								)}
 							</Button>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>

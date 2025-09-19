@@ -1,4 +1,16 @@
 import React from "react";
+import {
+	PiChartBar,
+	PiChartLine,
+	PiCode,
+	PiGlobe,
+	PiShieldCheck,
+} from "react-icons/pi";
+
+import { FaCode } from "react-icons/fa6";
+import { CiGlobe } from "react-icons/ci";
+import { IoShieldOutline } from "react-icons/io5";
+import { BiBarChartAlt2 } from "react-icons/bi";
 
 interface FeatureCardProps {
 	icon: React.ReactNode;
@@ -12,8 +24,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 	description,
 }) => {
 	return (
-		<div className="bg-[#FFFFFF] rounded-[1.25rem] p-5 flex flex-col gap-[60px] justify-between ">
-			<div className="w-16 h-16 mb-6 bg-[#F1F1F3] rounded-lg flex items-center justify-center shadow-sm">
+		<div className="bg-[#FFFFFF]  group rounded-[1.25rem] p-5 flex flex-col gap-[60px] hover:border-[1.5px] border-[#744FFB] justify-between ">
+			<div className="w-14 h-14 text-[#2D293D80] group-hover:bg-gradient-to-r group-hover:text-white group-hover:from-[#744FFB] group-hover:to-[#80E6E6] scale-125 mb-6 bg-[#F1F1F3] rounded-lg flex items-center justify-center shadow-sm">
 				{icon}
 			</div>
 			<div>
@@ -57,80 +69,24 @@ const Features: React.FC = () => {
 				</div>
 
 				{/* Feature Cards Grid */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[2px] bg-[#F1F1F3] p-1 rounded-[1.25rem]">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[2px] bg-[#F1F1F3] p-[1px] rounded-[1.25rem]">
 					<FeatureCard
-						icon={
-							<svg
-								className="w-8 h-8 text-gray-600"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-								/>
-							</svg>
-						}
+						icon={<FaCode size={26} />}
 						title="No-code toolset"
 						description="Drag, drop, connect AI + data with an intuitive visual editor"
 					/>
 					<FeatureCard
-						icon={
-							<svg
-								className="w-8 h-8 text-purple-600"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
-						}
+						icon={<CiGlobe size={26} />}
 						title="Deploy everywhere"
 						description="Web, apps, emails, push notifications — embed anywhere"
 					/>
 					<FeatureCard
-						icon={
-							<svg
-								className="w-8 h-8 text-gray-600"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-								/>
-							</svg>
-						}
+						icon={<IoShieldOutline size={26} />}
 						title="Full guardrails"
 						description="Content rules, human reviews, moderation built-in"
 					/>
 					<FeatureCard
-						icon={
-							<svg
-								className="w-8 h-8 text-gray-600"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-								/>
-							</svg>
-						}
+						icon={<BiBarChartAlt2 size={26} />}
 						title="Analytics + experimentation"
 						description="A/B testing and detailed performance insights baked in"
 					/>
